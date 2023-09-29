@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guess The Number</title>
+<style>
+body{
+/* background-color: orangered; */
+margin-top: 200px;
+text-align: center;
+font-size: 30px;
+background-image: url('unnamed.jpg');
+}
+.box {
+max-width: 700px;
+height: 400px;
+margin: 0 auto;
+padding: 20px;
+border: 8px solid black;
+border-radius: 5px;
+background-color: white;
+}
+</style>
+<script>
+function getRandomInteger(min, max) {
+min = Math.ceil(min);
+max = Math.floor(max);
+const randomNum = parseInt(Math.floor(Math.random() * (max - min + 1)) + min);
+const userGuess = parseInt(document.querySelector("#guess").value);
+
+
+if (randomNum === userGuess) {
+alert("You are right!");
+} else if (userGuess < randomNum) {
+alert("Try selecting a number greater than " + userGuess);
+} else {
+alert("Try selecting a number less than " + userGuess);
+}
+}
+</script>
+</head>
+<body>
+<div class="box">
+<h1>Guess The Number</h1>
+<p>selecte a random number between 1-10. See if you can guess.</p>
+<label for="guess">Enter an integer number between 1 and 10:</label>
+<input type="number" id="guess" min="1" max="10" step="1">
+<button type="button" onclick="getRandomInteger(1, 10)" class="btn">Submit</button>
+</div>
+</body>
+</html>
+
+
+
